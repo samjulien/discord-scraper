@@ -98,7 +98,7 @@ async def summarize(channel_id: int, user_id: int, channel_name: str, days_back:
         {threads_text}
         </threads>
 
-        Write the summary in third person, e.g. "User X shared a video about...", and include any links used in the messages. Be sure the links are in Markdown format and include the username where you have it.
+        Write the summary in third person, e.g. "User X shared a video about...", and include all links used in the messages. Be sure the links are in Markdown format and include the username where you have it.
 
         Make the summary for each message a separate paragraph. Do not include any additional commentary at the end.
 
@@ -114,7 +114,7 @@ async def summarize(channel_id: int, user_id: int, channel_name: str, days_back:
         {threads_text}
         </threads>
 
-        Write the summary in first person, e.g. "I watched a video about...", and include any links used in the messages. Be sure the links are in Markdown format.
+        Write the summary in first person, e.g. "I watched a video about...", and include all of the links used in the messages. Be sure the links are in Markdown format.
 
         Make the summary for each message a separate paragraph. Do not include any additional commentary at the end.
 
@@ -122,7 +122,7 @@ async def summarize(channel_id: int, user_id: int, channel_name: str, days_back:
 
     try:
         message = anthropic_client.messages.create(
-            model="claude-3-5-sonnet-20240620",
+            model="claude-3-5-sonnet-20241022",
             max_tokens=2048,
             messages=[
                 {"role": "user", "content": prompt}
@@ -167,7 +167,7 @@ def generate_newsletter(summaries_file: str):
 
     try:
         message = anthropic_client.messages.create(
-            model="claude-3-sonnet-20240229",
+            model="claude-3-5-sonnet-20241022",
             max_tokens=2048,
             messages=[
                 {"role": "user", "content": prompt}
